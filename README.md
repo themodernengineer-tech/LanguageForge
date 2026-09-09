@@ -107,8 +107,9 @@ This module explains the **Transformer** — the backbone of modern LLMs.
 - Decoder-only LLMs (GPT-style)
 - BERT vs GPT (objective & behavior)
 
-📓 `Notebooks/02_Transformers/attention_from_scratch.ipynb`  
-📘 `Docs/transformer_architecture.md`
+**Articles & Notes:**
+- **01:** 🧾 *“Transformers Unpacked: The Architecture Behind Modern LLMs”* &nbsp; 📘 [Read PDF](Docs/Transformers/transformers.pdf)
+
 
 ---
 
