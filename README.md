@@ -73,8 +73,9 @@ behind language modeling.
 - Vocabulary construction
 - Scaling intuition (parameters, data, compute)
 
-📓 `Notebooks/00_Foundations/language_model_basics.ipynb`  
-📘 `Docs/what_is_a_language_model.md`
+**Articles & Notes:**
+- **01:** 🧾 *“What Happens When You Ask an LLM a Question?”* &nbsp; 📘 [Read PDF](Docs/Transformers/ask_llm_question.pdf)
+
 
 ---
 
