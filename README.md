@@ -75,7 +75,7 @@ behind language modeling.
 
 **Articles & Notes:**
 - **01:** 🧾 *“What Happens When You Ask an LLM a Question?”* &nbsp; 📘 [Read PDF](Docs/Transformers/ask_llm_question.pdf)
-
+- **02:** 🧾 *“Breaking Language into Pieces: Understanding Tokenizers in LLMs”* &nbsp; 📘 [Read PDF](Docs/Transformers/understanding_tokenizers.pdf)
 
 ---
 
