@@ -453,6 +453,11 @@ Each module is expandable so this README can grow with the repository without be
 * Overfitting
 * Fine-tuning evaluation
 
+
+### 📚 Articles & Notes
+
+* **01:** 🧾 *“From General Intelligence to Task Expert: Understanding Fine-Tuning in LLMs”*   📘 [Read PDF](Docs/Transformers/fine_tuning.pdf)
+
 <br>
 
 </details>
