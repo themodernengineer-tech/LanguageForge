@@ -29,47 +29,7 @@
   
 ## 🔡 What is LanguageForge?
 
-<div align="center">
 
-### **A Laboratory for the Machinery Behind Language**
-
-
-
-<div align="center">
-
-```text
-TEXT
- │
- ▼
-TOKENS
- │
- ▼
-EMBEDDINGS
- │
- ▼
-ATTENTION
- │
- ▼
-TRANSFORMERS
- │
- ▼
-PRETRAINING
- │
- ▼
-FINE-TUNING
- │
- ▼
-ALIGNMENT
- │
- ▼
-INFERENCE
- │
- ▼
-EVALUATION
- │
- ▼
-LANGUAGE MODEL
-```
 
 </div>
 
