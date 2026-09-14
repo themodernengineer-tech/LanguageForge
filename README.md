@@ -5,212 +5,990 @@
 <h1 align="center">🔡 LanguageForge</h1>
 
 <p align="center">
+  <b>Forging an understanding of Large Language Models — one layer at a time.</b>
+</p>
+
+<p align="center">
   <i>
-    A self-directed research laboratory dedicated to understanding how
-    <b>Language Models</b> are designed, trained, scaled, and evaluated —
-    from statistical foundations to modern Large Language Models.
+    From tokens and embeddings to Transformers, training, alignment, inference,
+    evaluation, and the systems that make modern LLMs work.
   </i>
 </p>
 
-<!-- Badges -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Language%20Models-Core-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Transformers-Architecture-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Tokenization-BPE%20%7C%20WordPiece%20%7C%20Unigram-1f6feb?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Embeddings-Word%20%7C%20Sentence-6f42c1?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Training-Pretraining%20%7C%20SFT-0ea5e9?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Alignment-RLHF%20(Conceptual)-22c55e?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Evaluation-Reliability-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/LLM-Internals-6A5ACD?style=flat-square">
+  <img src="https://img.shields.io/badge/Transformers-Architecture-8A2BE2?style=flat-square">
+  <img src="https://img.shields.io/badge/Training-Pretraining%20%26%20SFT-0ea5e9?style=flat-square">
+  <img src="https://img.shields.io/badge/Alignment-RLHF%20%7C%20DPO-22c55e?style=flat-square">
+  <img src="https://img.shields.io/badge/Inference-Efficiency-F97316?style=flat-square">
+  <img src="https://img.shields.io/badge/Evaluation-Reliability-EF4444?style=flat-square">
 </p>
 
 ---
 
-## 🔡 About LanguageForge
+  
+## 🔡 What is LanguageForge?
 
-**LanguageForge** is a focused **research and learning archive** documenting my
-deep dive into **Language Models and Large Language Models (LLMs)**.
+<div align="center">
 
-The emphasis of this repository is **internal understanding**:
-
-- how text becomes tokens  
-- how meaning emerges from embeddings  
-- how attention enables sequence modeling  
-- how large-scale training shapes behavior  
-- how alignment and evaluation affect reliability  
-
-This repository deliberately **excludes system-level applications**
-(e.g., RAG, agents, prompt engineering) to preserve **conceptual depth and clarity**.
-
-> *LanguageForge is where I study how language models work — not how they are used.*
-
----
-
-## 🗂️ Table of Contents
-
-| No. | Module | Focus Area | Key Topics | Status |
-|:--:|:--------|:-----------|:-----------|:------|
-| 1 | [Foundations of Language Models](#-module-1-foundations-of-language-models) | Core concepts | Tokens, embeddings, scaling laws | 🟢 Active |
-| 2 | [Sequence Modeling](#-module-2-sequence-modeling) | Pre-transformer models | n-grams, RNNs, LSTMs | 🟢 Active |
-| 3 | [Transformer Architecture](#-module-3-transformer-architecture) | Core LLM architecture | Attention, RoPE, decoder-only | 🟡 In Progress |
-| 4 | [Training Language Models](#-module-4-training-language-models) | How LMs learn | Objectives, datasets, scaling | 🔜 Upcoming |
-| 5 | [Fine-Tuning & Alignment](#-module-5-fine-tuning--alignment) | Model adaptation | SFT, instruction tuning, RLHF | 🔜 Upcoming |
-| 6 | [Parameter-Efficient Fine-Tuning](#-module-6-parameter-efficient-fine-tuning) | Efficient adaptation | LoRA, QLoRA | 🔜 Upcoming |
-| 7 | [Inference & Efficiency](#-module-7-inference--efficiency) | Runtime behavior | KV cache, context windows | 🔜 Upcoming |
-| 8 | [Evaluation & Reliability](#-module-8-evaluation--reliability) | Model assessment | Hallucinations, metrics | 🧾 Updating |
-
----
-
-## 🔹 Module 1: Foundations of Language Models
-
-This module introduces the **statistical and representational foundations**
-behind language modeling.
-
-**Topics Covered**
-- What is a Language Model?
-- Language Models vs Foundation Models
-- Probability of sequences
-- Tokens vs words
-- Vocabulary construction
-- Scaling intuition (parameters, data, compute)
-
-**Articles & Notes:**
-- **01:** 🧾 *“What Happens When You Ask an LLM a Question?”* &nbsp; 📘 [Read PDF](Docs/Transformers/ask_llm_question.pdf)
-- **02:** 🧾 *“Breaking Language into Pieces: Understanding Tokenizers in LLMs”* &nbsp; 📘 [Read PDF](Docs/Transformers/understanding_tokenizers.pdf)
-
----
-
-## 🔹 Module 2: Sequence Modeling
-
-This module studies **pre-transformer approaches** to modeling sequences and
-their limitations.
-
-**Topics Covered**
-- N-gram language models
-- Markov assumptions
-- RNNs and vanishing gradients
-- LSTMs and GRUs
-- Why recurrence failed at scale
-
-📓 `Notebooks/01_Sequence_Models/rnn_lstm_language_models.ipynb`  
-📘 `Docs/sequence_modeling_notes.md`
-
----
-
-## 🔹 Module 3: Transformer Architecture
-
-This module explains the **Transformer** — the backbone of modern LLMs.
-
-**Topics Covered**
-- Self-attention mechanism
-- Multi-head attention
-- Positional encoding (Sinusoidal, RoPE, ALiBi)
-- Encoder vs decoder architectures
-- Decoder-only LLMs (GPT-style)
-- BERT vs GPT (objective & behavior)
-
-**Articles & Notes:**
-- **01:** 🧾 *“Transformers Unpacked: The Architecture Behind Modern LLMs”* &nbsp; 📘 [Read PDF](Docs/Transformers/transformers.pdf)
+### **A Laboratory for the Machinery Behind Language**
 
 
----
 
-## 🔹 Module 4: Training Language Models
+<div align="center">
 
-This module focuses on **how language models are trained at scale**.
+```text
+TEXT
+ │
+ ▼
+TOKENS
+ │
+ ▼
+EMBEDDINGS
+ │
+ ▼
+ATTENTION
+ │
+ ▼
+TRANSFORMERS
+ │
+ ▼
+PRETRAINING
+ │
+ ▼
+FINE-TUNING
+ │
+ ▼
+ALIGNMENT
+ │
+ ▼
+INFERENCE
+ │
+ ▼
+EVALUATION
+ │
+ ▼
+LANGUAGE MODEL
+```
 
-**Topics Covered**
-- Autoregressive language modeling
-- Masked language modeling
-- Causal language models
-- Training data pipelines
-- Sliding window sampling
-- Scaling laws (conceptual)
+</div>
 
-📓 `Notebooks/03_Training/language_model_training.ipynb`  
-📘 `Docs/training_language_models.md`
+**LanguageForge** is my self-directed research and learning archive for opening that box.
 
----
+The repository follows language models from **first principles to modern LLM internals**, studying how text becomes numerical representations, how Transformers process context, how models learn through pretraining, how fine-tuning and alignment modify behavior, and how inference systems turn learned parameters into generated language.
 
-## 🔹 Module 5: Fine-Tuning & Alignment
+<table>
+<tr>
+<td width="25%" align="center">
 
-This module studies how pretrained language models are adapted.
+### 🧠 Understand
 
-**Topics Covered**
-- Supervised fine-tuning (SFT)
-- Instruction tuning
-- Alignment objectives
-- RLHF (high-level pipeline)
-- Limitations of alignment
+Architecture
+Representations
+Attention
+Objectives
 
-📓 `Notebooks/04_FineTuning/sft_alignment_overview.ipynb`  
-📘 `Docs/alignment_notes.md`
+</td>
+<td width="25%" align="center">
+
+### 🏭 Train
+
+Pretraining
+Scaling
+Fine-Tuning
+Alignment
+
+</td>
+<td width="25%" align="center">
+
+### ⚡ Infer
+
+Decoding
+KV Cache
+Quantization
+Efficiency
+
+</td>
+<td width="25%" align="center">
+
+### 🔬 Evaluate
+
+Quality
+Reliability
+Failure Modes
+Interpretability
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### The guiding question
+
+## **What actually happens between text going in and intelligence appearing to come out?**
+
+`LANGUAGE → REPRESENTATION → COMPUTATION → PREDICTION → LANGUAGE`
+
+> **LanguageForge studies the model beneath the interface.**
+
+</div>
 
 ---
 
-## 🔹 Module 6: Parameter-Efficient Fine-Tuning
+# 🧭 The LLM Learning Forge
 
-This module explores **efficient adaptation methods** for large models.
+The roadmap progresses from first principles toward modern language-model engineering.
 
-**Topics Covered**
-- Why full fine-tuning is expensive
-- Low-Rank Adaptation (LoRA)
-- Quantized LoRA (QLoRA)
-- Memory–performance tradeoffs
-
-📓 `Notebooks/05_PEFT/lora_qlora_comparison.ipynb`  
-📘 `Docs/peft_notes.md`
+Each module is expandable so this README can grow with the repository without becoming a wall of text.
 
 ---
 
-## 🔹 Module 7: Inference & Efficiency
+<details>
+<summary><h2>🧠 Module 01 — Language Model Fundamentals</h2></summary>
 
-This module examines **runtime behavior** of language models.
+<br>
 
-**Topics Covered**
-- Context windows
-- KV cache intuition
-- Throughput vs latency
-- Long-context limitations
-- Inference-time failures
+### The starting point: what exactly is a language model?
 
-📓 `Notebooks/06_Inference/inference_efficiency.ipynb`  
-📘 `Docs/inference_notes.md`
+**Core Concepts**
 
----
+* What is a Language Model?
+* Language Models vs Large Language Models
+* Language Models vs Foundation Models
+* Statistical language modeling
+* Probability of token sequences
+* Conditional probability
+* Next-token prediction
+* Autoregressive generation
+* Parameters and model size
+* Training vs inference
+* Context and context windows
+* Temperature intuition
+* Why LLMs can generate coherent language
+* Capabilities vs limitations of LLMs
 
-## 🔹 Module 8: Evaluation & Reliability
+### 📚 Articles & Notes
 
-This module focuses on **evaluating language models beyond accuracy**.
+* **01:** 🧾 *“What Happens When You Ask an LLM a Question?”*   📘 [Read PDF](Docs/Transformers/ask_llm_question.pdf)
 
-**Topics Covered**
-- Intrinsic vs extrinsic evaluation
-- Perplexity and its limitations
-- Hallucinations and failure modes
-- Robustness and regression testing
+<br>
 
-📘 `Docs/hallucinations_failure_modes.md`  
-📘 `Docs/evaluation_language_models.md`
-
----
-
-## 🧰 Tools & Frameworks
-
-- Python  
-- PyTorch  
-- Hugging Face Transformers  
-- Jupyter Notebooks  
+</details>
 
 ---
 
-## 📌 Repository Philosophy
+<details>
+<summary><h2>✂️ Module 02 — Tokenization & Vocabulary</h2></summary>
 
-- Depth over breadth  
-- One research question per notebook  
-- Failures are documented explicitly  
-- Theory precedes implementation  
+<br>
 
-> *To understand language models, one must study their structure, training, and limits — not just their outputs.*
+### How does human language become something a neural network can process?
+
+**Core Concepts**
+
+* Why models cannot directly process text
+* Tokens vs words vs characters
+* Token IDs
+* Vocabulary construction
+* Unknown tokens
+* Subword tokenization
+* Byte Pair Encoding — BPE
+* WordPiece
+* Unigram Language Model tokenization
+* SentencePiece
+* Byte-level tokenization
+* Special tokens
+* BOS / EOS / PAD tokens
+* Encoding and decoding
+* Multilingual tokenization
+* Vocabulary size trade-offs
+* Tokenization efficiency
+* Tokenization and context-window usage
+* Tokenization and inference cost
+
+### 📚 Articles & Notes
+
+* **01:** 🧾 *“Breaking Language into Pieces: Understanding Tokenizers in LLMs”*   📘 [Read PDF](Docs/Transformers/understanding_tokenizers.pdf)
+
+<br>
+
+</details>
 
 ---
 
-⭐ *Maintained by Kartik Saroop — AI & Machine Learning Research Learner*
+<details>
+<summary><h2>🧬 Module 03 — Embeddings & Language Representation</h2></summary>
+
+<br>
+
+### How does a model turn discrete tokens into mathematical representations?
+
+**Core Concepts**
+
+* One-hot encoding
+* Distributed representations
+* Word embeddings
+* Word2Vec
+* CBOW
+* Skip-Gram
+* GloVe
+* Token embeddings
+* Embedding matrices
+* Embedding dimensions
+* Semantic similarity
+* Cosine similarity
+* Contextual embeddings
+* Static vs contextual embeddings
+* Sentence embeddings
+* Embedding spaces
+* Representation geometry
+* Why similar concepts cluster
+* Input vs output embeddings
+* Weight tying
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>⏳ Module 04 — Sequence Modeling Before Transformers</h2></summary>
+
+<br>
+
+### What did language modeling look like before attention?
+
+**Core Concepts**
+
+* N-gram language models
+* Markov assumptions
+* Statistical sequence modeling
+* Neural language models
+* Recurrent Neural Networks
+* Hidden states
+* Backpropagation Through Time
+* Vanishing gradients
+* Exploding gradients
+* Long Short-Term Memory — LSTM
+* Gated Recurrent Units — GRU
+* Bidirectional RNNs
+* Sequence-to-sequence models
+* Encoder-decoder architecture
+* Bottlenecks in recurrent models
+* Why recurrence struggles at scale
+* Why Transformers replaced RNN-centric architectures
+
+<br>
+
+</details>
+
+---
+
+<details open>
+<summary><h2>⚡ Module 05 — Transformer Architecture</h2></summary>
+
+<br>
+
+### The architecture that changed language modeling.
+
+**Core Concepts**
+
+* Transformer overview
+* Encoder architecture
+* Decoder architecture
+* Encoder-decoder Transformers
+* Decoder-only Transformers
+* Self-attention
+* Queries, Keys, and Values
+* Attention scores
+* Scaled Dot-Product Attention
+* Softmax in attention
+* Causal masking
+* Multi-Head Attention
+* Attention heads
+* Positional information
+* Sinusoidal positional encoding
+* Learned positional embeddings
+* Rotary Position Embeddings — RoPE
+* ALiBi
+* Feed-Forward Networks
+* Residual connections
+* Layer normalization
+* Pre-Norm vs Post-Norm
+* Transformer blocks
+* BERT vs GPT
+* Why modern LLMs are predominantly decoder-only
+
+### 📚 Articles & Notes
+
+* **01:** 🧾 *“Transformers Unpacked: The Architecture Behind Modern LLMs”*   📘 [Read PDF](Docs/Transformers/transformers.pdf)
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🎯 Module 06 — Attention: Inside the Core Mechanism</h2></summary>
+
+<br>
+
+### A deeper investigation into the mechanism at the heart of Transformers.
+
+**Core Concepts**
+
+* Attention intuition
+* Query-Key matching
+* Value aggregation
+* Q, K, V projection matrices
+* Attention matrix
+* Attention weights
+* Causal attention
+* Cross-attention
+* Self-attention complexity
+* Attention head specialization
+* Multi-Query Attention — MQA
+* Grouped-Query Attention — GQA
+* Multi-Head Attention — MHA
+* Local attention
+* Sliding-window attention
+* Sparse attention
+* FlashAttention intuition
+* Attention bottlenecks
+* Long-context attention
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🧮 Module 07 — Language Modeling Objectives</h2></summary>
+
+<br>
+
+### What objective actually teaches a model language?
+
+**Core Concepts**
+
+* Maximum likelihood estimation
+* Cross-entropy loss
+* Next-token prediction
+* Autoregressive language modeling
+* Causal language modeling
+* Masked language modeling
+* Prefix language modeling
+* Teacher forcing
+* Sequence probability
+* Log-likelihood
+* Per-token loss
+* Perplexity
+* BERT-style objectives
+* GPT-style objectives
+* Objective-function trade-offs
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🏭 Module 08 — LLM Pretraining</h2></summary>
+
+<br>
+
+### How does a model learn from massive amounts of text?
+
+**Core Concepts**
+
+* Pretraining pipeline
+* Dataset collection
+* Data cleaning
+* Deduplication
+* Data filtering
+* Dataset mixtures
+* Data quality
+* Tokenized datasets
+* Sequence packing
+* Training batches
+* Optimizers
+* Adam / AdamW
+* Learning-rate schedules
+* Warmup
+* Gradient accumulation
+* Mixed-precision training
+* BF16 / FP16
+* Gradient clipping
+* Checkpointing
+* Training stability
+* Compute budgets
+* Chinchilla-style scaling intuition
+* Parameters vs data vs compute
+* Scaling laws
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>📈 Module 09 — Scaling Laws & Model Size</h2></summary>
+
+<br>
+
+### What happens as models, datasets, and compute become larger?
+
+**Core Concepts**
+
+* Parameter scaling
+* Dataset scaling
+* Compute scaling
+* Training FLOPs
+* Compute-optimal training
+* Kaplan scaling laws
+* Chinchilla scaling laws
+* Undertraining large models
+* Data-to-parameter ratios
+* Emergent behavior
+* Scaling limitations
+* Quality vs compute
+* Cost-performance trade-offs
+* Dense models
+* Mixture-of-Experts intuition
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🎓 Module 10 — Fine-Tuning LLMs</h2></summary>
+
+<br>
+
+### Turning a general pretrained model into a specialized model.
+
+**Core Concepts**
+
+* Pretraining vs fine-tuning
+* Full fine-tuning
+* Supervised Fine-Tuning — SFT
+* Instruction tuning
+* Instruction datasets
+* Prompt-response formatting
+* Chat templates
+* Domain adaptation
+* Task-specific fine-tuning
+* Dataset quality
+* Training loss
+* Validation loss
+* Catastrophic forgetting
+* Overfitting
+* Fine-tuning evaluation
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🪶 Module 11 — Parameter-Efficient Fine-Tuning</h2></summary>
+
+<br>
+
+### How can massive models be adapted without retraining every parameter?
+
+**Core Concepts**
+
+* Why full fine-tuning is expensive
+* Parameter-Efficient Fine-Tuning — PEFT
+* Adapter methods
+* Low-Rank Adaptation — LoRA
+* Rank decomposition
+* LoRA rank
+* Alpha scaling
+* Target modules
+* Adapter merging
+* Quantization-aware adaptation
+* QLoRA
+* 4-bit training
+* NF4
+* Memory savings
+* Accuracy trade-offs
+* Full fine-tuning vs LoRA vs QLoRA
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🤝 Module 12 — Alignment & Preference Learning</h2></summary>
+
+<br>
+
+### How does a pretrained model become a useful assistant?
+
+**Core Concepts**
+
+* What is alignment?
+* Instruction following
+* Human preferences
+* Supervised Fine-Tuning
+* Reward models
+* Reinforcement Learning from Human Feedback — RLHF
+* PPO intuition
+* Preference datasets
+* Direct Preference Optimization — DPO
+* DPO vs RLHF
+* Constitutional approaches
+* Alignment tax
+* Reward hacking
+* Over-optimization
+* Helpfulness
+* Harmlessness
+* Alignment limitations
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🎲 Module 13 — Decoding & Text Generation</h2></summary>
+
+<br>
+
+### Once the model predicts probabilities, how is the next token actually chosen?
+
+**Core Concepts**
+
+* Logits
+* Softmax
+* Probability distributions
+* Greedy decoding
+* Temperature
+* Top-K sampling
+* Top-P / nucleus sampling
+* Min-P intuition
+* Beam search
+* Repetition penalties
+* Frequency penalties
+* Stop tokens
+* EOS handling
+* Deterministic vs stochastic generation
+* Sampling trade-offs
+* Generation quality
+* Structured generation
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🚀 Module 14 — LLM Inference</h2></summary>
+
+<br>
+
+### What happens after training when a model serves real requests?
+
+**Core Concepts**
+
+* Training vs inference
+* Prefill phase
+* Decode phase
+* Autoregressive inference
+* KV cache
+* KV-cache memory
+* Time to First Token — TTFT
+* Time per Output Token — TPOT
+* Inter-Token Latency — ITL
+* Throughput
+* Requests per second
+* Tokens per second
+* Batch inference
+* Dynamic batching
+* Continuous batching
+* Memory bandwidth
+* Compute-bound vs memory-bound operations
+* GPU utilization
+* Inference bottlenecks
+* Latency-throughput trade-offs
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>⚙️ Module 15 — Efficient LLM Inference</h2></summary>
+
+<br>
+
+### How do inference engines make large models faster and cheaper?
+
+**Core Concepts**
+
+* Inference engines
+* Model serving architecture
+* PagedAttention
+* Continuous batching
+* KV-cache management
+* Prefix caching
+* Chunked prefill
+* Speculative decoding
+* Tensor parallelism
+* Pipeline parallelism
+* Data parallel inference
+* Quantized inference
+* Kernel optimization
+* CUDA kernels
+* FlashAttention
+* vLLM concepts
+* TensorRT-LLM concepts
+* Throughput optimization
+* Latency optimization
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>📦 Module 16 — Quantization & Model Compression</h2></summary>
+
+<br>
+
+### How can large models consume less memory and compute?
+
+**Core Concepts**
+
+* Numerical precision
+* FP32
+* FP16
+* BF16
+* INT8
+* INT4
+* Weight quantization
+* Activation quantization
+* Post-Training Quantization — PTQ
+* Quantization-Aware Training — QAT
+* GPTQ
+* AWQ
+* GGUF concepts
+* Calibration
+* Memory reduction
+* Accuracy degradation
+* Quantization vs throughput
+* Quantization vs latency
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🧠 Module 17 — Context Windows & Long-Context LLMs</h2></summary>
+
+<br>
+
+### What does it actually mean for a model to have context?
+
+**Core Concepts**
+
+* Context windows
+* Sequence length
+* Attention complexity
+* Position representations
+* RoPE
+* Context extension
+* Sliding-window attention
+* Long-context training
+* Lost-in-the-middle behavior
+* Context utilization
+* KV-cache growth
+* Memory requirements
+* Long-context inference cost
+* Context compression
+* Long-context evaluation
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🧩 Module 18 — Mixture of Experts</h2></summary>
+
+<br>
+
+### Can a model have enormous capacity without activating every parameter?
+
+**Core Concepts**
+
+* Dense vs sparse models
+* Mixture of Experts — MoE
+* Experts
+* Routing networks
+* Top-K routing
+* Sparse activation
+* Active parameters
+* Total parameters
+* Load balancing
+* Expert capacity
+* Communication overhead
+* Expert parallelism
+* Training MoE models
+* MoE inference
+* Efficiency trade-offs
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🔬 Module 19 — LLM Evaluation</h2></summary>
+
+<br>
+
+### How do we know whether a language model is actually good?
+
+**Core Concepts**
+
+* Evaluation methodology
+* Training vs validation vs test sets
+* Perplexity
+* Exact match
+* F1
+* BLEU
+* ROUGE
+* Benchmark evaluation
+* MMLU-style evaluation
+* Reasoning benchmarks
+* Code benchmarks
+* Human evaluation
+* LLM-as-a-judge
+* Pairwise evaluation
+* Elo-style ranking
+* Evaluation contamination
+* Benchmark saturation
+* Domain-specific evaluation
+* Regression testing
+* Statistical significance
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🛡️ Module 20 — Reliability, Hallucinations & Failure Modes</h2></summary>
+
+<br>
+
+### Where do language models fail — and why?
+
+**Core Concepts**
+
+* Hallucinations
+* Factuality
+* Calibration
+* Confidence vs correctness
+* Distribution shift
+* Prompt sensitivity
+* Context failures
+* Reasoning failures
+* Repetition
+* Degeneration
+* Knowledge limitations
+* Temporal limitations
+* Bias
+* Robustness
+* Adversarial inputs
+* Failure-mode analysis
+* Reliability evaluation
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🔭 Module 21 — Modern LLM Architecture Patterns</h2></summary>
+
+<br>
+
+### How are contemporary language models evolving beyond the original Transformer?
+
+**Core Concepts**
+
+* Decoder-only architectures
+* RMSNorm
+* SwiGLU
+* RoPE
+* Grouped-Query Attention
+* Multi-Query Attention
+* Sliding-window attention
+* Sparse attention
+* Mixture of Experts
+* Shared experts
+* Attention variants
+* State-space model intuition
+* Hybrid architectures
+* Architectural efficiency
+* Memory-efficient architectures
+* Modern design trade-offs
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🔎 Module 22 — Interpretability & Understanding Model Behavior</h2></summary>
+
+<br>
+
+### Can we understand what happens inside billions of learned parameters?
+
+**Core Concepts**
+
+* Black-box behavior
+* Neural representations
+* Feature visualization
+* Attention visualization
+* Probing
+* Activation analysis
+* Logit lens intuition
+* Sparse autoencoders
+* Superposition
+* Feature circuits
+* Mechanistic interpretability
+* Representation analysis
+* Model internals
+* Interpretability limitations
+
+<br>
+
+</details>
+
+---
+
+<details>
+<summary><h2>🏗️ Module 23 — LLM Systems Thinking</h2></summary>
+
+<br>
+
+### Connecting model architecture with the systems required to run it.
+
+**Core Concepts**
+
+* Model architecture ↔ hardware
+* Parameter count ↔ memory
+* Precision ↔ memory footprint
+* Tokens ↔ compute
+* Context length ↔ KV cache
+* Batch size ↔ throughput
+* GPU memory ↔ model capacity
+* Memory bandwidth ↔ decoding performance
+* Parallelism ↔ scaling
+* Quantization ↔ deployment
+* Latency ↔ user experience
+* Throughput ↔ serving economics
+* Model quality ↔ infrastructure cost
+* Training architecture vs inference architecture
+
+> This module forms the bridge between **LanguageForge** and my AI infrastructure studies in **InfraNerve**.
+
+<br>
+
+</details>
+
+---
+
+# 🧰 Tools & Frameworks
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Hugging%20Face-Transformers-FFD21E?style=flat-square">
+<img src="https://img.shields.io/badge/Jupyter-Notebooks-F37626?style=flat-square&logo=jupyter&logoColor=white">
+<img src="https://img.shields.io/badge/vLLM-Inference-4B8BBE?style=flat-square">
+<img src="https://img.shields.io/badge/PEFT-LoRA%20%7C%20QLoRA-8A2BE2?style=flat-square">
+
+</div>
+
+---
+
+# 📌 The LanguageForge Principle
+
+<div align="center">
+
+```text id="r19tdh"
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│                     DON'T JUST ASK THE MODEL                     │
+│                              │                                  │
+│                              ▼                                  │
+│                   ASK HOW THE MODEL WORKS                       │
+│                              │                                  │
+│             ┌────────────────┼────────────────┐                 │
+│             ▼                ▼                ▼                 │
+│         STRUCTURE         LEARNING         BEHAVIOR             │
+│             │                │                │                 │
+│             ▼                ▼                ▼                 │
+│       Transformers       Training          Inference            │
+│       Attention          Alignment         Evaluation           │
+│             │                │                │                 │
+│             └────────────────┼────────────────┘                 │
+│                              ▼                                  │
+│                       UNDERSTANDING                             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### **LanguageForge is not a collection of LLM buzzwords.**
+
+It is a growing record of my attempt to answer one question:
+
+## **“What actually happens between text going in and intelligence appearing to come out?”**
+
+<br>
+
+`TEXT → TOKENS → VECTORS → ATTENTION → PREDICTION → LANGUAGE`
+
+<br>
+
+> **Don't stop at the output. Trace the computation.**
+
+---
+
+⭐ **Maintained by Kartik Saroop**
+
+*Learning Language Models from first principles to modern LLM internals.*
+
+</div>
